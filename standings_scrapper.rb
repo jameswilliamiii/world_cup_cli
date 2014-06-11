@@ -1,4 +1,4 @@
-class GroupData
+class StandingsScrapper
   def initialize
     @uri = 'http://www.fifa.com/worldcup/groups/index.html'
   end

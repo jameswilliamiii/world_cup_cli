@@ -1,4 +1,4 @@
-class StandingsScrapper
+class StandingsScraper
   def initialize
     @uri = 'http://www.fifa.com/worldcup/groups/index.html'
   end
@@ -11,21 +11,20 @@ class StandingsScrapper
     self.request.css('.group-wrap')
   end
 
-  def groups_hash
+  def groups_array
     arr = [ ]
     self.pulled_data.each do |group|
       arr << {
                 name: group.css('.caption-nolink').text,
-                countries: countries_hash(group.css('tr'))
+                countries: countries_array(group.css('tr'))
               }
     end
     return arr
   end
 
-  def countries_hash(countries)
+  def countries_array(countries)
     arr = [ ]
     countries.each do |country|
-      unless not_present?(country.css('.tbl-teamcode .t-nTri').text)
         arr << {
                   name: country.css('.tbl-teamcode .t-nTri').text,
                   wins: country.css('.tbl-win span.text').text,
@@ -35,9 +34,8 @@ class StandingsScrapper
                   goals_against: country.css('.tbl-goalagainst span.text').text,
                   points: country.css('.tbl-pts span.text').text
                 }
-      end
     end
-    return arr
+    arr.select{ |item| item unless item[:name].empty? }
   end
 
   def not_present?(country_name)

@@ -1,4 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
-require_relative '../standings_scrapper'
+require_relative '../standings_scraper'
 require_relative '../standings'
+require_relative '../scores_scraper'
+require_relative '../scores'

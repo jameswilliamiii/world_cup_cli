@@ -9,7 +9,7 @@ class Standings
 
   def self.latest_updates
       puts "\n\nStandings as of #{Standings.updated_at}"
-      StandingsScrapper.new.groups_hash.each do |group|
+      StandingsScraper.new.groups_array.each do |group|
         puts "\n                    #{group[:name]}                    "
         puts Standings.header
         group[:countries].each do |country|

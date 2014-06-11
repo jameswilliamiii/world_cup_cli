@@ -57,15 +57,17 @@ class Table
     Time.now.strftime('%D %T')
   end
 
-  def self.groups
-      puts "Standings as of #{Table.updated_at}"
+  def self.latest_updates
+      puts "\n\nStandings as of #{Table.updated_at}"
       GroupData.new.groups_hash.each do |group|
-        puts "                    #{group[:name]}                    "
+        puts "\n                    #{group[:name]}                    "
         puts Table.header
         group[:countries].each do |country|
           puts "#{country[:name]}         #{country[:wins]}     #{country[:draws]}     #{country[:losses]}     #{country[:goals_for]}      #{country[:goals_against]}      #{country[:points]}"
         end
-        puts "\n"
       end
+      puts "\n"
   end
 end
+
+puts Table.latest_updates

@@ -10,3 +10,13 @@ class Search
     @doc
   end
 end
+
+class Tables
+  def initialize
+    @page = Search.new('http://www.fifa.com/worldcup/groups/index.html').page
+  end
+
+  def table_header
+    "Teams     W     D     L     GF     GA     Pts"
+  end
+end

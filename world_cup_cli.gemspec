@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'world_cup_cli'
-  s.version     = '0.0.0'
+  s.version     = '0.0.1'
   s.date        = '2014-06-12'
   s.summary     = "world cup 2014 tables and scores"
   s.description = "A command line interface to quickly check table standings, scores, and upcoming matches for the World Cup"

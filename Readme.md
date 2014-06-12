@@ -13,6 +13,9 @@ After completing the installation, you can then type in `world_cup_cli` followed
     world_cup_cli standings
     world_cup_cli scores
 
+For help
+    world_cup_cli scores
+
 ###About
 
 World Cup CLI was built by [James Stubblefield](http://jamiestubblefield.com), and inspired by the [standings](https://github.com/scottluptowski/standings) gem.

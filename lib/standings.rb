@@ -8,7 +8,7 @@ class Standings
   end
 
   def self.latest_updates
-      puts "\n\nStandings as of #{Standings.updated_at}"
+      puts "\n\nStandings as of #{Standings.updated_at}".colorize(:yellow)
       StandingsScraper.new.groups_array.each do |group|
         puts "\n                    #{group[:name]}                    "
         puts Standings.header

@@ -24,7 +24,7 @@ class Scores
   end
 
   def self.display_match(match)
-    puts "#{match[:home_team]}  #{match[:score]}  #{match[:away_team]}"
+    puts "#{match[:home_team]}  #{match[:score]}  #{match[:away_team]}    Status: #{match[:status]}"
   end
 
 end

@@ -13,7 +13,8 @@ After completing the installation, you can then type in `world_cup_cli` followed
     world_cup_cli standings
     world_cup_cli scores
 
-For help
+For help:
+
     world_cup_cli scores
 
 ###About

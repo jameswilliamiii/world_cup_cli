@@ -8,7 +8,7 @@ class ScoresScraper
   end
 
   def pulled_data
-    self.request.css('.col-xs-3 div')
+    self.request.css('.match-list-date.anchor .col-xs-12 div')
   end
 
   def match_array
@@ -18,8 +18,7 @@ class ScoresScraper
                 date: convert_to_datetime(match.children.css('.mu-i-datetime').text),
                 home_team: match.children.css('.t.home span.t-nTri').text,
                 away_team: match.children.css('.t.away span.t-nTri').text,
-                score: match.children.css('.s span.s-scoreText').text,
-                status: match.children.css('.s .s-status').text
+                score: match.children.css('.s span.s-scoreText').text
               }
     end
     clean_array = arr.select{|item| item unless invalid_match?(item)}

@@ -22,11 +22,24 @@ class ScoresScraper
                 status: match.children.css('.s .s-status').text
               }
     end
-    clean_array = arr.select{|item| item unless invalid_match?(item)}
-    yesterday = clean_array.select{|s| s if s[:date].to_date == Date.today - 1}
-    today = clean_array.select{|s| s if s[:date].to_date == Date.today}
-    tomorrow = clean_array.select{|s| s if s[:date].to_date == Date.today + 1}
-    { yesterday: yesterday, today: today, tomorrow: tomorrow }
+    clean_arr = clean_array(arr)
+    { yesterday: yesterday_matches(clean_arr), today: today_matches(clean_arr), tomorrow: tomorrow_matches(clean_arr) }
+  end
+
+  def clean_array(arr)
+    arr.select{|item| item unless invalid_match?(item)}
+  end
+
+  def yesterday_matches(arr)
+    arr.select{|s| s if s[:date].to_date == Date.today - 1}
+  end
+
+  def today_matches(arr)
+    arr.select{|s| s if s[:date].to_date == Date.today}
+  end
+
+  def tomorrow_matches(arr)
+    arr.select{|s| s if s[:date].to_date == Date.today + 1}
   end
 
   def convert_to_datetime(string)

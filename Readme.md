@@ -15,7 +15,7 @@ After completing the installation, you can then type in `world_cup_cli` followed
 
 For help:
 
-    world_cup_cli scores
+    world_cup_cli help
 
 ###About
 
